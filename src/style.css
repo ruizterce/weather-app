@@ -1,0 +1,132 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    max-width: 90vw;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.location {
+    text-align: center;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    font-size: 16px;
+    color: #333333;
+    transition: all 0.3s ease;
+}
+
+.location:hover {
+    border-color: #666666;
+}
+
+.location:focus {
+    outline: none;
+    border-color: #333333;
+    box-shadow: 0 0 0 2px #333333;
+}
+
+.button {
+    margin: 10px;
+    max-width: 200px;
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 16px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border: 2px solid #333333;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.button:hover {
+    background-color: #333333;
+    color: #ffffff;
+}
+
+.button:active {
+    transform: translateY(2px);
+}
+
+.button:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px #333333;
+}
+
+.forecast {
+    margin-top: 20px;
+}
+
+.day {
+    margin-bottom: 20px;
+}
+
+.date {
+    color: #333;
+    text-align: center;
+}
+
+.hours {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hour {
+    width: calc(95% - 10px);
+    background-color: #f9f9f9;
+    border-radius: 5px;
+    padding: 10px;
+    margin-bottom: 10px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-around;
+}
+
+.hour h3 {
+    margin: 5px 20px;
+    font-size: 16px;
+}
+
+.hour p {
+    margin: 5px 15px;
+    font-size: 14px;
+}
+
+.hour .temp {
+    color: #FF5722;
+}
+
+.hour .humidity {
+    color: #2196F3;
+}
+
+.hour .weather-type {
+    color: #9C27B0;
+}
+
+.hour .wind {
+    color: #4CAF50;
+}
+
+.hour .rain-chance {
+    color: #FFC107;
+}
