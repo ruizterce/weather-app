@@ -82,51 +82,49 @@ body {
     text-align: center;
 }
 
-.hours {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    flex-direction: column;
-    align-items: center;
-}
-
-.hour {
-    width: calc(95% - 10px);
-    background-color: #f9f9f9;
+.weather-table {
+    width: 100%;
+    border-collapse: collapse;
     border-radius: 5px;
-    padding: 10px;
-    margin-bottom: 10px;
+    overflow: hidden;
     box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: space-around;
 }
 
-.hour h3 {
-    margin: 5px 20px;
-    font-size: 16px;
+.weather-table th,
+.weather-table td {
+    padding: 10px;
+    text-align: center;
 }
 
-.hour p {
-    margin: 5px 15px;
-    font-size: 14px;
+.weather-table th {
+    background-color: #f9f9f9;
+    color: #333;
 }
 
-.hour .temp {
+.weather-table td {
+    background-color: #fff;
+}
+
+.weather-table tr:nth-child(even) td {
+    background-color: #f9f9f9;
+}
+
+.weather-table td.temp {
     color: #FF5722;
 }
 
-.hour .humidity {
+.weather-table td.humidity {
     color: #2196F3;
 }
 
-.hour .weather-type {
+.weather-table td.condition {
     color: #9C27B0;
 }
 
-.hour .wind {
+.weather-table td.wind {
     color: #4CAF50;
 }
 
-.hour .rain-chance {
+.weather-table td.rain-chance {
     color: #FFC107;
 }

@@ -30,57 +30,75 @@ async function displayWeatherData(containerElement, location) {
   console.log(weatherObject);
 
   weatherObject.forecast.forecastday.forEach((dayObject) => {
+    //Create day element and header
     const dayElement = document.createElement('div');
     dayElement.classList.add('day');
-
     const dateElement = document.createElement('h2');
     dateElement.classList.add('date');
     dateElement.textContent = dayObject.date;
     dayElement.appendChild(dateElement);
 
-    const hoursElement = document.createElement('div');
-    hoursElement.classList.add('hours');
+    const table = document.createElement('table');
+    table.classList.add('weather-table');
 
-    dayObject.hour.forEach((hourObject) => {
-      const hourElement = document.createElement('div');
-      hourElement.classList.add('hour');
+    //Create table headers
+    const headerRow = document.createElement('tr');
+    const headers = ['Hour', 'Temperature', 'Humidity', 'Condition', 'Wind', 'Rain Chance'];
 
-      const timeElement = document.createElement('h3');
-      timeElement.textContent = hourObject.time;
-      hourElement.appendChild(timeElement);
-
-      const tempElement = document.createElement('p');
-      tempElement.classList.add('temp');
-      tempElement.textContent = 'Temperature: ' + hourObject.temp_c + '°C';
-      hourElement.appendChild(tempElement);
-
-      const humidityElement = document.createElement('p');
-      humidityElement.classList.add('humidity');
-      humidityElement.textContent = 'Humidity: ' + hourObject.humidity + '%';
-      hourElement.appendChild(humidityElement);
-
-      const conditionTypeElement = document.createElement('p');
-      conditionTypeElement.classList.add('condition-type');
-      conditionTypeElement.textContent = 'Condition: ' + hourObject.condition.text;
-      hourElement.appendChild(conditionTypeElement);
-
-      const windElement = document.createElement('p');
-      windElement.classList.add('wind');
-      windElement.textContent =
-        'Wind: ' + hourObject.wind_kph + ' k/h. Direction: ' + hourObject.wind_dir;
-      hourElement.appendChild(windElement);
-
-      const rainChanceElement = document.createElement('p');
-      rainChanceElement.classList.add('rain-chance');
-      rainChanceElement.textContent = 'Rain Chance: ' + hourObject.chance_of_rain;
-      hourElement.appendChild(rainChanceElement);
-
-      hoursElement.appendChild(hourElement);
+    headers.forEach((headerText) => {
+      const headerCell = document.createElement('th');
+      headerCell.textContent = headerText;
+      headerRow.appendChild(headerCell);
     });
 
-    dayElement.appendChild(hoursElement);
+    table.appendChild(headerRow);
 
+    //Create table rows
+    dayObject.hour.forEach((hourObject) => {
+      const hourRow = document.createElement('tr');
+
+      //Hour
+      const hourCell = document.createElement('td');
+      const time = new Date(hourObject.time);
+      hourCell.textContent = time.getHours() + ':00';
+      hourRow.appendChild(hourCell);
+
+      //Temp
+      const tempCell = document.createElement('td');
+      tempCell.classList.add('temp');
+      tempCell.textContent = hourObject.temp_c + '°C';
+      hourRow.appendChild(tempCell);
+
+      //Humidity
+      const humidityCell = document.createElement('td');
+      humidityCell.classList.add('humidity');
+      humidityCell.textContent = hourObject.humidity + '%';
+      hourRow.appendChild(humidityCell);
+
+      //Condition
+      const conditionCell = document.createElement('td');
+      conditionCell.classList.add('condition');
+      conditionCell.textContent = hourObject.condition.text;
+      hourRow.appendChild(conditionCell);
+
+      //Wind
+      const windCell = document.createElement('td');
+      windCell.classList.add('wind');
+      windCell.textContent = hourObject.wind_kph + ' k/h ' + hourObject.wind_dir;
+      hourRow.appendChild(windCell);
+
+      //Rain Chance
+      const rainChanceCell = document.createElement('td');
+      rainChanceCell.classList.add('rain-chance');
+      rainChanceCell.textContent = hourObject.chance_of_rain + '%';
+      hourRow.appendChild(rainChanceCell);
+
+      table.appendChild(hourRow);
+    });
+
+    dayElement.appendChild(table);
     forecastElement.appendChild(dayElement);
   });
+
   containerElement.appendChild(forecastElement);
 }
