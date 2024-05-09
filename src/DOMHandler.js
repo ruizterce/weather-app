@@ -19,6 +19,12 @@ export default function initWeatherApp(containerElement) {
     //Adjust locationElement width to value text length
     locationElement.style.width = eval(locationElement.value.length + 1) + 'ch';
   });
+  //Blur locationElement by pressing Enter
+  locationElement.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter') {
+      locationElement.blur();
+    }
+  });
 }
 
 //Add DOM elements inside a given containerElement, from the weatherObject returned by processWeatherData for a given location
