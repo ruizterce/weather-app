@@ -18,13 +18,13 @@ body {
 }
 
 .location {
+    width: 120px;
     text-align: center;
-    font-size: 16px;
     font-weight: bold;
-    padding: 10px 15px;
-    border: 2px solid #333333;
+    padding: 5px 10px;
+    border: 2px solid #f2f2f2;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 25px;
     color: #333333;
     transition: all 0.3s ease;
 }
@@ -43,13 +43,13 @@ body {
     margin: 10px;
     max-width: 200px;
     display: inline-block;
-    padding: 10px 20px;
+    padding: 5px 20px;
     background-color: #ffffff;
     color: #333333;
     font-size: 16px;
     font-weight: bold;
     text-transform: uppercase;
-    border: 2px solid #333333;
+    border: 2px solid #f2f2f2;
     border-radius: 5px;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -62,11 +62,6 @@ body {
 
 .button:active {
     transform: translateY(2px);
-}
-
-.button:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px #333333;
 }
 
 .forecast {
@@ -106,25 +101,25 @@ body {
 }
 
 .weather-table tr:nth-child(even) td {
-    background-color: #f9f9f9;
+    background-color: #f2f2f2;
 }
 
-.weather-table td.temp {
+.weather-table .temp {
     color: #FF5722;
 }
 
-.weather-table td.humidity {
+.weather-table .humidity {
     color: #2196F3;
 }
 
-.weather-table td.condition {
+.weather-table .condition {
     color: #9C27B0;
 }
 
-.weather-table td.wind {
+.weather-table .wind {
     color: #4CAF50;
 }
 
-.weather-table td.rain-chance {
+.weather-table .rain-chance {
     color: #FFC107;
 }

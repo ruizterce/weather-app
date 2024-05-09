@@ -8,12 +8,23 @@ export default function initWeatherApp(containerElement) {
   containerElement.appendChild(locationElement);
   displayWeatherData(containerElement, locationElement.value);
 
+  //Widen locationElement and select text
+  locationElement.addEventListener('focus', () => {
+    locationElement.style.width = '70vh';
+    locationElement.select();
+  });
+  //Adjust locationElement width to value text length
+  locationElement.addEventListener('blur', () => {
+    locationElement.style.width = eval(locationElement.value.length + 1) + 'ch';
+  });
+
   const updateLocationBtn = document.createElement('button');
   updateLocationBtn.className = 'button';
-  updateLocationBtn.textContent = 'Search';
+  updateLocationBtn.textContent = 'Go';
   containerElement.appendChild(updateLocationBtn);
 
   updateLocationBtn.addEventListener('click', () => {
+    //Refresh forecast info to the new location
     displayWeatherData(containerElement, locationElement.value);
   });
 }
@@ -44,10 +55,12 @@ async function displayWeatherData(containerElement, location) {
     //Create table headers
     const headerRow = document.createElement('tr');
     const headers = ['Hour', 'Temperature', 'Humidity', 'Condition', 'Wind', 'Rain Chance'];
+    const headerClasses = ['hour', 'temp', 'humidity', 'condition', 'wind', 'rain-chance'];
 
-    headers.forEach((headerText) => {
+    headers.forEach((headerText, index) => {
       const headerCell = document.createElement('th');
       headerCell.textContent = headerText;
+      headerCell.classList.add(headerClasses[index]); // Add class to header cell
       headerRow.appendChild(headerCell);
     });
 
