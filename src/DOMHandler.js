@@ -71,13 +71,13 @@ async function displayWeatherData(containerElement, location) {
 
       //Create table headers
       const headerRow = document.createElement('tr');
-      const headers = ['Hour', 'Temperature', 'Humidity', 'Condition', 'Wind', 'Rain Chance'];
+      const headers = ['', 'Hour', 'Temperature', 'Humidity', 'Condition', 'Wind', 'Rain Chance'];
       const headerClasses = ['hour', 'temp', 'humidity', 'condition', 'wind', 'rain-chance'];
 
       headers.forEach((headerText, index) => {
         const headerCell = document.createElement('th');
         headerCell.textContent = headerText;
-        headerCell.classList.add(headerClasses[index]); // Add class to header cell
+        headerCell.classList.add(headerClasses[index - 1]); // Add class to header cell
         headerRow.appendChild(headerCell);
       });
 
@@ -86,6 +86,13 @@ async function displayWeatherData(containerElement, location) {
       //Create table rows
       dayObject.hour.forEach((hourObject) => {
         const hourRow = document.createElement('tr');
+
+        const iconCell = document.createElement('td');
+        const iconImg = document.createElement('img');
+        iconImg.classList.add('condition-icon');
+        iconImg.src = hourObject.condition.icon;
+        iconCell.appendChild(iconImg);
+        hourRow.appendChild(iconCell);
 
         //Hour
         const hourCell = document.createElement('td');
