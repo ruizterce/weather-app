@@ -4,14 +4,38 @@ import processWeatherData from './processWeatherData';
 export default function initWeatherApp(containerElement) {
   const locationElement = document.createElement('input');
   locationElement.className = 'location';
-  locationElement.value = 'Terrassa';
+  //Randomize starting location between the ones in the array
+  const startingLocation = [
+    'Tokyo',
+    'New York',
+    'Madrid',
+    'Shanghai',
+    'Moscow',
+    'Toronto',
+    'Melbourne',
+    'Berlin',
+    'Seoul',
+    'Brussels',
+    'Sydney',
+    'Washington',
+    'Beijing',
+    'Chicago',
+    'Los Angeles',
+    'Singapore',
+    'Hong Kong',
+    'Paris',
+    'London'
+  ];
+  locationElement.value = startingLocation[Math.floor(Math.random() * startingLocation.length)];
   containerElement.appendChild(locationElement);
+  displayWeatherData(containerElement, locationElement.value);
+  locationElement.style.width = eval(locationElement.value.length + 1) + 'ch';
+
   const authorElement = document.createElement('a');
   authorElement.classList.add('author');
   authorElement.textContent = '@ruizterce';
   authorElement.href = 'https://github.com/ruizterce';
   containerElement.appendChild(authorElement);
-  displayWeatherData(containerElement, locationElement.value);
 
   //Widen locationElement and select text
   locationElement.addEventListener('focus', () => {
