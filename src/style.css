@@ -39,15 +39,12 @@ body {
     box-shadow: 0 0 0 2px #333333;
 }
 
-.forecast {
-    margin-top: 20px;
-}
-
 .day {
     margin-bottom: 20px;
 }
 
-.date {
+.date,
+.location-info {
     color: #333;
     text-align: center;
 }

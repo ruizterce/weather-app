@@ -45,6 +45,18 @@ async function displayWeatherData(containerElement, location) {
     console.log('weatherObject');
     console.log(weatherObject);
 
+    //Create location info element
+    const locationInfoElement = document.createElement('h2');
+    locationInfoElement.classList.add('location-info');
+    locationInfoElement.textContent =
+      weatherObject.location.name +
+      ', ' +
+      weatherObject.location.region +
+      ', ' +
+      weatherObject.location.country;
+
+    forecastElement.appendChild(locationInfoElement);
+
     weatherObject.forecast.forecastday.forEach((dayObject) => {
       //Create day element and header
       const dayElement = document.createElement('div');
