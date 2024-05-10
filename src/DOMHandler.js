@@ -80,8 +80,7 @@ async function displayWeatherData(containerElement, location) {
     locationInfoElement.textContent =
       weatherObject.location.name +
       ', ' +
-      weatherObject.location.region +
-      ', ' +
+      (weatherObject.location.region ? weatherObject.location.region + ', ' : '') +
       weatherObject.location.country;
 
     forecastElement.appendChild(locationInfoElement);
