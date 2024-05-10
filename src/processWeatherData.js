@@ -17,6 +17,5 @@ export default async function processWeatherData(location) {
     current: weatherData.current,
     forecast: weatherData.forecast
   };
-  console.log(weatherObject);
   return weatherObject;
 }

@@ -71,8 +71,6 @@ async function displayWeatherData(containerElement, location) {
     const forecastElement = document.createElement('div');
     forecastElement.className = 'forecast';
     const weatherObject = await processWeatherData(location);
-    console.log('weatherObject');
-    console.log(weatherObject);
 
     //Create location info element
     const locationInfoElement = document.createElement('h2');
