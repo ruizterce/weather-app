@@ -17,6 +17,20 @@ body {
     align-items: center;
 }
 
+.author {
+    font-size: 0.9rem;
+    color: #333;
+    background-color: #fff;
+    position: fixed;
+    padding: 5px;
+    border-radius: 10px 0px 0px 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    right: 0;
+    bottom: 10px;
+
+    text-decoration: none;
+}
+
 .location {
     width: 120px;
     text-align: center;
@@ -48,7 +62,7 @@ body {
 
 h2 {
     margin: 0px;
-    padding: 10px 0;
+    padding: 10px 0 0 0;
 }
 
 .location-info {
@@ -56,7 +70,7 @@ h2 {
     background-color: #fff;
     text-align: center;
     position: sticky;
-    top: 0px;
+    top: -1px;
     z-index: 2;
 }
 
@@ -66,7 +80,7 @@ h2 {
     background-color: #fff;
     text-align: center;
     position: sticky;
-    top: 3rem;
+    top: 2.2rem;
     z-index: 1;
 }
 
@@ -80,6 +94,8 @@ h2 {
 .weather-table th,
 .weather-table td {
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 .weather-table th {
@@ -87,7 +103,7 @@ h2 {
     color: #333;
     padding: 10px;
     position: sticky;
-    top: 6rem;
+    top: 4.5rem;
 }
 
 .weather-table td {

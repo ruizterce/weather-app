@@ -6,6 +6,11 @@ export default function initWeatherApp(containerElement) {
   locationElement.className = 'location';
   locationElement.value = 'Terrassa';
   containerElement.appendChild(locationElement);
+  const authorElement = document.createElement('a');
+  authorElement.classList.add('author');
+  authorElement.textContent = '@ruizterce';
+  authorElement.href = 'https://github.com/ruizterce';
+  containerElement.appendChild(authorElement);
   displayWeatherData(containerElement, locationElement.value);
 
   //Widen locationElement and select text
