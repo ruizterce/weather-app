@@ -81,6 +81,10 @@ async function displayWeatherData(containerElement, location) {
       (weatherObject.location.region ? weatherObject.location.region + ', ' : '') +
       weatherObject.location.country;
 
+    locationInfoElement.addEventListener('click', () => {
+      document.querySelector('.location').focus();
+    });
+
     forecastElement.appendChild(locationInfoElement);
 
     weatherObject.forecast.forecastday.forEach((dayObject) => {
