@@ -151,7 +151,7 @@ async function displayWeatherData(containerElement, location) {
         //Wind
         const windCell = document.createElement('td');
         windCell.classList.add('wind');
-        windCell.textContent = hourObject.wind_kph + ' k/h ' + hourObject.wind_dir;
+        windCell.textContent = hourObject.wind_kph + ' km/h ' + hourObject.wind_dir;
         hourRow.appendChild(windCell);
 
         //Rain Chance
